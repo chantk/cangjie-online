@@ -2,13 +2,15 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>快快樂樂學倉頡 - 線上網頁版</title>
-    <!-- CSS and JS resources for js-dos v7 -->
-    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
-    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+    
+    <!-- Using stable, working CDN links for js-dos v7 engine -->
+    <link rel="stylesheet" href="https://js-dos.com/v7/build/releases/latest/js-dos/js-dos.css">
+    <script src="https://js-dos.com/v7/build/releases/latest/js-dos/js-dos.js"></script>
+    
     <style>
-        html, body, #dos {
+        html, body, #jsdos {
             width: 100%;
             height: 100%;
             margin: 0;
@@ -19,11 +21,17 @@
 </head>
 <body>
 
-    <div id="dos"></div>
+    <!-- Container element for js-dos interface -->
+    <div id="jsdos"></div>
 
     <script>
-        // Configure js-dos to point to your zip file
-        Dos(document.getElementById("dos")).run("cangjie.zip");
+        // Redirect asset collection to your localized matching origin folder
+        emulators.pathPrefix = "js-dos/";
+
+        // Fire the runtime pipeline using your validated bundle archive
+        Dos(document.getElementById("jsdos")).run("cangjie.zip").catch((err) => {
+            console.error("Initialization failure caught:", err);
+        });
     </script>
 
 </body>
