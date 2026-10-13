@@ -23,15 +23,7 @@
 
     <script>
         // Configure js-dos to point to your zip file
-        Dos(document.getElementById("dos"), {
-            wdosboxUrl: "https://js-dos.com"
-        }).then((runtime) => {
-            runtime.bootstrap({
-                jsdos: "cangjie.zip",
-                // CHANGE 'PLAY.EXE' below to match your game's actual executable filename
-                run: ["play.com"] 
-            });
-        });
+        Dos(document.getElementById("dos").run("cangjie.zip");
     </script>
 
 </body>
